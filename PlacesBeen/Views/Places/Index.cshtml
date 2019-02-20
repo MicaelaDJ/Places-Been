@@ -1,7 +1,7 @@
 @using PlacesBeen.Models;
 
 <h1>Places You've Been</h1>
-<ul>
+
 @if (Model.Count == 0)
 {
   <p>You haven't added any of the places you've been!</p>
@@ -10,14 +10,15 @@
 {
   @foreach (Place place in Model)
   {
-  <li>@place.GetCity()</li>
+  <h3>@place.GetCity()</h3>
     <ul>
       <li>You traveled with @place.GetCompanion()</li>
       <li>You were there for @place.GetDuration()</li>
+      <li>You had @place.GetFun() fun</li>
     </ul>
   }
 }
-</ul>
+
 
 <a href="/places/new">Add a new place.</a>
 

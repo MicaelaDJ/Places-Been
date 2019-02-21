@@ -8,15 +8,17 @@ namespace PlacesBeen.Models
     private string _duration;
     private string _companion;
     private string _fun;
+    private int _id;
 
     private static List<Place> _instances = new List<Place> {};
 
-    public Place (string cityName, string duration, string companion, string fun)
+    public Place (string cityName, string duration, string companion, string fun, int id)
     {
       _cityName = cityName;
       _duration = duration;
       _companion = companion;
       _fun = fun;
+      _id = _instances.Count;
       _instances.Add(this);
     }
     public string GetCity()
@@ -51,6 +53,10 @@ namespace PlacesBeen.Models
     {
       _fun = newFun;
     }
+    public int GetId()
+    {
+      return _id;
+    }
     public static List<Place> GetAll()
     {
       return _instances;
@@ -58,6 +64,10 @@ namespace PlacesBeen.Models
     public static void ClearAll()
     {
       _instances.Clear();
+    }
+    public static Place Find(int searchId)
+    {
+      return _instances[searchId];
     }
   }
 }

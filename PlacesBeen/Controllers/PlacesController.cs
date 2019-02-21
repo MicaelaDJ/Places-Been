@@ -20,9 +20,9 @@ namespace PlacesBeen.Controllers
     }
 
     [HttpPost("/places")]
-    public ActionResult Create(string city, string duration, string companion, string fun)
+    public ActionResult Create(string city, string duration, string companion, string fun, int id)
     {
-      Place newPlace = new Place(city, duration, companion, fun);
+      Place newPlace = new Place(city, duration, companion, fun, id);
       return RedirectToAction("Index");
     }
 
@@ -31,6 +31,13 @@ namespace PlacesBeen.Controllers
     {
       Place.ClearAll();
       return View();
+    }
+
+    [HttpGet("/places/{id}")]
+    public ActionResult Show(int id)
+    {
+      Place place = Place.Find(id);
+      return View(place);
     }
 
   }

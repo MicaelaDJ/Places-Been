@@ -10,7 +10,7 @@
 {
   @foreach (Place place in Model)
   {
-  <h3>@place.GetCity()</h3>
+  <h3><a href='/places/@place.GetId()'>@place.GetCity()</a></h3>
     <ul>
       <li>You traveled with @place.GetCompanion()</li>
       <li>You were there for @place.GetDuration()</li>
